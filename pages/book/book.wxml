@@ -1,0 +1,63 @@
+<!--online.wxml-->
+<view class="container">
+  <import src="/pages/public.wxml"/>
+  <!-- <view class="online-head">
+    <image src=""></image>
+  </view> -->
+  <form bindsubmit="book" report-submit="true">
+  <view class="Myfrom clear">
+
+    <view class="form-text">
+      <label>所选套餐：</label>
+      <input type="text" name="taocan" maxlength="32" placeholder-class="input-placeholder" class="from-input" value='{{taocan}}' />
+    </view>
+
+    <view class="form-text">
+      <label>您的姓名：</label>
+      <input type="text" placeholder="请输入姓名" name="userName" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+    </view>
+
+    <view class="form-text">
+      <label>您的电话：</label>
+      <input type="text" placeholder="请输入联系方式" name="telephone" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+    </view>
+
+    <view class="form-text">
+      <label>搬家日期：</label>
+      <picker mode="date" value="{{date}}" start="{{date}}" name="date"  bindchange="bindDateChange" class="from-input">
+        <view class="dateoption">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-text">
+      <label>搬家时间：</label>
+      <picker mode="time" value="{{time}}" tart="00:00" end="24:00" name="time" bindchange="bindTimeChange" class="from-input">
+        <view class="dateoption">
+          {{time}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-text">
+      <label>起点地址：</label>
+      <input type="text" placeholder="请输入您的搬家起点地址" name="fromDes" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+    </view>
+
+     <view class="form-text">
+      <label>终点地址：</label>
+      <input type="text" placeholder="请输入您的搬家目的地" name="toDes" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+    </view>
+  </view>
+
+  <view class="form-textarea">
+      <textarea maxlength="200" name="note" placeholder-class="input-placeholder" placeholder="其他（非必填）" />
+  </view>
+
+  <view class="form-submit">
+      <button size="default" loading="{{loading}}" class="online-submit" form-type="submit">预约搬家</button>
+  </view>
+  </form>
+  <template is="companyinfo" />
+</view>

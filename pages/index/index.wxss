@@ -1,0 +1,63 @@
+page{  
+  display: flex;  
+  flex-direction: column;  
+  height: 100%;  
+}  
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: #fff;  
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;
+  height:100rpx;
+  border-bottom:solid #dddddd 2rpx; 
+  border-left:solid #dddddd 2rpx; 
+  border-right:solid #dddddd 2rpx;
+} 
+
+.navBarImg{
+  opacity:0.4;
+}
+
+.navbar .navBarImg.active{  
+  opacity:1; 
+}  
+
+.navbar .item.active{  
+  border-bottom:solid white 2rpx;   
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  height: 4rpx;  
+}
+
+.login-btn{
+    margin-top: 60rpx;
+    height:70rpx;
+    width: 80%;
+    color: white;
+    background-color: #e98910;
+    border-radius: 10rpx;
+    font-size: 17px;
+    text-align: center;
+    
+}
+
+.login-btn text {
+  line-height: 30px;
+}
+
+.login-btn:hover{
+    width: 80%;
+    color: white;
+    border-radius: 0;
+}  

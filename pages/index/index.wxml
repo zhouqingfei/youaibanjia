@@ -1,0 +1,62 @@
+<view >  
+  <image style="width:70%;height:120rpx" src="../../image/logo.jpg"/>
+</view> 
+<!--导航条-->  
+<view class="navbar">  
+  <view wx:for="{{navBarData}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
+    <image data-idx="{{index}}" class="navBarImg {{currentTab==index ? 'active' : ''}}" style="width:70%;height:100%" src="{{item.imgSrc}}"/>
+  </view>
+</view>  
+  
+<view style="width:100%;height:18%;">  
+  <image style="width:100%;height:100%;" src="../../image/title.gif"/>
+</view>  
+
+<!--小零碎-->  
+<!-- <view style="width:100%;height:50%;" hidden="{{currentTab!==0}}">  
+  <image style="width:100%;height:100%;" src="../../image/xiaolingsui.jpg"/>
+</view>   -->
+
+<view style="width:100%;height:40%;" hidden="{{currentTab!==0}}"> 
+  <view style="width:100%;height:12%;text-align: center;color:#e98910;">小零碎套餐</view>
+  <view style="width:100%;height:12%;text-align: center;color:#9C9C9C;">(适合单身公寓)</view>
+  <view style="width:100%;height:100px;">
+    <image style="width:40%;height:100%;" src="../../image/1.jpg"/>
+    <text style="padding-top:10rpx;float:right;width:60%;height:100%;font-size: 20rpx;">1、市内搬家距离8公里内，超出里程部分按10/元公里计算；\n2、配备面包车一辆，搬运工1名，不限行李，装满为止；\n3、楼层费：起搬房与目的房无电梯楼层加收楼层费15元/层；\n4、拆装费：家具、家电拆装费用另计，量大从优；\n5、小区停车费、高速费以实收为准。</text>
+  </view>
+</view>  
+  
+<!--手拉手-->  
+<view style="width:100%;height:40%;" hidden="{{currentTab!==1}}">  
+  <view style="width:100%;height:12%;text-align: center;color:#e98910;">手拉手套餐</view>
+  <view style="width:100%;height:12%;text-align: center;color:#9C9C9C;">(适合一室一厅)</view>
+  <view style="width:100%;height:100px;">
+    <image style="width:40%;height:100%;" src="../../image/2.jpg"/>
+    <text style="padding-top:10rpx;float:right;width:60%;height:100%;font-size: 20rpx;">1、市内搬家距离8公里内，超出里程部分按10/元公里计算；\n2、配备2米厢式货车一辆，搬运工2名，不限行李，装满为止；\n3、楼层费：起搬房与目的房无电梯楼层加收楼层费15元/层；\n4、拆装费：家具、家电拆装费用另计，量大从优；\n5、小区停车费、高速费以实收为准。</text>
+  </view>
+</view>  
+  
+<!--小家庭-->  
+<view style="width:100%;height:40%;" hidden="{{currentTab!==2}}">  
+  <view style="width:100%;height:12%;text-align: center;color:#e98910;">小家庭套餐</view>
+  <view style="width:100%;height:12%;text-align: center;color:#9C9C9C;">(适合两室一厅)</view>
+  <view style="width:100%;height:100px;">
+    <image style="width:40%;height:100%;" src="../../image/3.jpg"/>
+    <text style="padding-top:10rpx;float:right;width:60%;height:100%;font-size: 20rpx;">1、限深圳市内，搬家距离8公里内，超出按超出公里数另算（10元/公里）；\n2、配备3米厢式货车一辆，搬运工2名，不限行李，装满为止；\n3、楼层费：起搬房与目的房无电梯楼层加收楼层费15元/层；\n4、拆装费：家具、家电拆装费用另计，量大从优；\n5、小区停车费、高速费以实收为准。</text>
+  </view>
+</view> 
+
+<!--大家庭-->  
+<view style="width:100%;height:40%;" hidden="{{currentTab!==3}}">  
+  <view style="width:100%;height:12%;text-align: center;color:#e98910;">大家庭套餐</view>
+  <view style="width:100%;height:12%;text-align: center;color:#9C9C9C;">(适合三室及以上)</view>
+  <view style="width:100%;height:100px;">
+    <image style="width:40%;height:100%;" src="../../image/4.jpg"/>
+    <text style="padding-top:10rpx;float:right;width:60%;height:100%;font-size: 20rpx;">1、限深圳市内，搬家距离8公里内，超出按超出公里数另算（12元/公里）；\n2、配备4米厢式货车一辆，搬运工2名，不限行李，装满为止；\n3、楼层费：起搬房与目的房无电梯楼层加收楼层费15元/层；\n4、拆装费：家具、家电拆装费用另计，量大从优；\n5、小区停车费、高速费以实收为准。</text>
+  </view>
+</view> 
+
+<view class="login-item bottom">
+    <button class="login-btn" style="width:30%;border-radius:5rpx;" bindtap="bookBtnClick"><text>马上预约</text></button>
+    <!-- <button style="height:60rpx;width:30%;border-radius:5rpx;" type="primary" form-type="submit">马上预约</button> -->
+</view>

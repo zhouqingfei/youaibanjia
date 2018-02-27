@@ -1,0 +1,24 @@
+<!--pages/about/about.wxml-->
+<page class="about">
+  <view class="about-wei">
+    <view class="about-broder">
+      <view class="about-img">
+        <image src="{{img}}" class="in-img" background-size="cover"></image>
+      </view>
+      <view class="about-title">{{title}}</view>
+      <view class="about-content">
+        <text>{{intro}}</text>
+      </view>
+      <view class="about-addr">
+        <view class="about-tab">{{contab}}</view>
+        <view>所在地址: {{address}}</view>
+        <view>联系电话: {{mobile}}</view>
+        <view>商务合作: {{email}}</view>
+      </view>
+
+    </view>
+    <image style="width: 120px ;  height: 38px" mode="aspectFit" src="{{buttonimg}}"></image>
+  </view>
+
+  <!-- -->
+</page>

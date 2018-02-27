@@ -1,0 +1,18 @@
+<!--public.wxml-->
+<!-- <template name="foot">
+  <view style="width:100%;height:5em;"></view>
+  <view class="foot">
+    <navigator url="/pages/index/index" class="foot_btn index" hover-class="none" open-type="reLaunch">首页</navigator>
+    <button open-type="contact" class="foot_btn kswz" >快速问诊</button>
+    <navigator url="/pages/Personal/index" class="foot_btn grzx" hover-class="none" open-type="reLaunch">个人中心</navigator>
+  </view>
+</template> -->
+
+<template name="companyinfo">
+  <view class="companyinfo">
+    <view class="h-i-left">
+      <view class="tel" bindtap="onMakePhone">咨询热线：0555-8888888</view>
+      <view class="address">地址：深圳市</view>
+    </view>
+  </view>
+</template>

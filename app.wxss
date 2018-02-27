@@ -1,0 +1,94 @@
+view, sroll-view, swiper, icon, text, progress, button, checkbox, form, input,
+label, input, picker, radio, slider, switch, action-sheet, modal, toast, loading,
+navigator, audio, image, video, map, canvas {
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none !important;
+}
+
+.container, input, button {
+  font: 14px "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+}
+
+.container {
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.nodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.nodata_img {
+  display: block;
+  width: 45px;
+  height: 45px;
+}
+
+.nodata_text {
+  color: #dedede;
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.companyinfo {
+  height: 7em;
+  font-size: 26rpx;
+  background-color: #fff;
+  padding: 0.5em 3% 3%;
+  margin: 0.5em auto;
+}
+
+.companyinfo .h-i-left {
+  width: 65%;
+  float: left;
+}
+
+.companyinfo .h-i-left view {
+  line-height: 2em;
+  height: 2em;
+  overflow: hidden;
+  position: relative;
+  padding-left: 2em;
+}
+
+.companyinfo .h-i-left view.jztime {
+  font-size: 26rpx;
+}
+
+.companyinfo .h-i-left view::before {
+  content: "";
+  display: block;
+  width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.companyinfo .h-i-right {
+  width: 35%;
+  height: 6em;
+  float: right;
+  text-align: center;
+}
+
+.companyinfo .h-i-right image {
+  height: 6em;
+  width: 6em;
+  margin: auto;
+}

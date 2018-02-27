@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/comment/comment",
+    "pages/about/about",
+    "pages/book/book"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#e98910",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "image/taocan.png",
+      "selectedIconPath": "image/taocanHL.png",
+      "text": "套餐"
+    },
+    {
+      "pagePath": "pages/comment/comment",
+      "iconPath": "image/haoping.png",
+      "selectedIconPath": "image/haopingHL.png",
+      "text": "好评"
+    },
+    {
+      "pagePath": "pages/about/about",
+      "iconPath": "image/aixin.png",
+      "selectedIconPath": "image/aixinHL.png",
+      "text": "关于有爱"
+    }]
+  }
+}
