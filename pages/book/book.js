@@ -1,6 +1,6 @@
 // online.js
 var appInstance = getApp();
-var taocanlist = ["小零碎套餐", "小家庭套餐", "手拉手套餐", "大家庭套餐"];
+var taocanlist = ["小零碎套餐", "手拉手套餐", "小家庭套餐", "大家庭套餐"];
 Page({
 
   /**
@@ -150,7 +150,7 @@ Page({
 
     wx.request({
       // url: requestUrl,
-      url: 'http://10.200.104.10:8080/wechat_ethan/appointment.do/addAppointment',
+      url: 'http://localhost:8080/wechat_ethan/appointment.do/addAppointment',
       data: {
         taocan:taocan,
         username: userName,
