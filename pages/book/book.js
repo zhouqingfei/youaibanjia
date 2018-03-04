@@ -13,10 +13,6 @@ Page({
     time:'-',
     index: 0,
     offset: 0,
-    fromHasFloor:'有',
-    fromFloorHiddenFlag:true,
-    toHasFloor: '有',
-    toFloorHiddenFlag: true
   },
   bindDateChange: function (e) {
     this.setData({
@@ -42,6 +38,7 @@ Page({
     } else {
     }
   },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -91,49 +88,14 @@ Page({
   onShareAppMessage: function () {
 
   },
-  fromHasFloorSwitchChange: function (e) {
-    //console.log(e.detail.value)
-    if (e.detail.value){
-      this.setData({
-        fromHasFloor: "有",
-        fromFloorHiddenFlag:true
-      })
-    }else{
-      this.setData({
-        fromHasFloor: "无",
-        fromFloorHiddenFlag: false
-      })
-    }
-    
-  },
-  toHasFloorSwitchChange: function (e) {
-    //console.log(e.detail.value)
-    if (e.detail.value) {
-      this.setData({
-        toHasFloor: "有",
-        toFloorHiddenFlag: true
-      })
-    } else {
-      this.setData({
-        toHasFloor: "无",
-        toFloorHiddenFlag: false
-      })
-    }
-
-  },
   book: function (e) {
     var taocan = e.detail.value.taocan;
-
+    var userName = e.detail.value.userName;
+    var telephone = e.detail.value.telephone;
     var date = e.detail.value.date;
     var time = e.detail.value.time;
     var fromDes = e.detail.value.fromDes;
-    var fromFloor = e.detail.value.fromFloor;
     var toDes = e.detail.value.toDes;
-    var toFloor = e.detail.value.toFloor;
-
-    var userName = e.detail.value.userName;
-    var telephone = e.detail.value.telephone;
-   
     var note = e.detail.value.note;
 
     console.log(taocan + userName + telephone + date + time + fromDes + toDes + note);
@@ -186,23 +148,6 @@ Page({
       })
       return;
     }
-    if (fromFloor == "") {
-      wx.showToast({
-        icon: 'loading',
-        title: '搬出楼层未填写！',
-        duration: 1000
-      })
-      return;
-    }
-    if (toFloor == "") {
-      wx.showToast({
-        icon: 'loading',
-        title: '搬入楼层未填写！',
-        duration: 1000
-      })
-      return;
-    }
-
 
     wx.request({
       // url: requestUrl,
@@ -215,9 +160,7 @@ Page({
         time,time,
         fromDes:fromDes,
         toDes:toDes,
-        note:note,
-        fromFloor: fromFloor,
-        toFloor: toFloor
+        note:note
       },
       success: function (result) {
         wx.showToast({
