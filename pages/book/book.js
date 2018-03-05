@@ -12,36 +12,30 @@ Page({
   data: {
 
     taocan: '',
-    date: '-',
-    time:'-',
+    dateTime: null,
+    appointmentTime:'',
+    
+    fromMapName: "",
+    fromMapAddress: "",
+    fromDes: "",
+
+    fromHasFloor: '有',
+    fromFloorHiddenFlag: true,
+
     index: 0,
-    offset: 0,
-    fromMapName:"",
-    fromMapAddress:"",
-    fromDes:"",
-    fromHasFloor:'有',
-    fromFloorHiddenFlag:true,
+    offset: 0,        
+    
     toMapName: "",
     toMapAddress: "",
     toDes: "",
-    toFloor: '有',
+
+    toHasFloor: '有',
     toFloorHiddenFlag: true,
 
-
     dateTimeArray: null,
-    dateTime: null,
+    
     startYear: 2018,
     endYear: 2050
-  },
-  bindDateChange: function (e) {
-    this.setData({
-      date: e.detail.value
-    })
-  },
-  bindTimeChange: function (e) {
-    this.setData({
-      time: e.detail.value
-    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -56,9 +50,13 @@ Page({
     this.setData({
       dateTimeArray: obj.dateTimeArray,
       dateTime: obj.dateTime
-     
     });
 
+    this.setData({
+      appointmentTime: this.data.dateTimeArray[0][this.data.dateTime[0]] + '-' + this.data.dateTimeArray[1][this.data.dateTime[1]] + '-' + this.data.dateTimeArray[2][this.data.dateTime[2]] + ' ' + this.data.dateTimeArray[3][this.data.dateTime[3]] + ':' + this.data.dateTimeArray[4][this.data.dateTime[4]]
+    });
+
+    console.log(this.data.appointmentTime);
 
     //console.log('options.taocanId is: ' + options.taocanId)
     var that = this;
@@ -120,7 +118,11 @@ Page({
 
   },
   changeDateTime(e) {
-    this.setData({ dateTime: e.detail.value });
+    this.setData({ 
+      dateTime: e.detail.value,
+      appointmentTime: this.data.dateTimeArray[0][this.data.dateTime[0]] + '-' + this.data.dateTimeArray[1][this.data.dateTime[1]] + '-' + this.data.dateTimeArray[2][this.data.dateTime[2]] + ' ' + this.data.dateTimeArray[3][this.data.dateTime[3]] + ':' + this.data.dateTimeArray[4][this.data.dateTime[4]]
+    });
+    console.log(this.data.appointmentTime);
   },
   changeDateTimeColumn(e) {
     var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
@@ -130,8 +132,11 @@ Page({
 
     this.setData({
       dateTimeArray: dateArr,
-      dateTime: arr
+      dateTime: arr,
+      appointmentTime: this.data.dateTimeArray[0][this.data.dateTime[0]] + '-' + this.data.dateTimeArray[1][this.data.dateTime[1]] + '-' + this.data.dateTimeArray[2][this.data.dateTime[2]] + ' ' + this.data.dateTimeArray[3][this.data.dateTime[3]] + ':' + this.data.dateTimeArray[4][this.data.dateTime[4]]
     });
+
+    console.log(this.data.appointmentTime);
   },
   fromHasFloorSwitchChange: function (e) {
     //console.log(e.detail.value)
@@ -215,12 +220,18 @@ Page({
     })
   },
   book: function (e) {
+
     var taocan = e.detail.value.taocan;
 
-    var date = e.detail.value.date;
-    var time = e.detail.value.time;
+    var appointTime = this.data.appointmentTime;
+    
+    var fromMapName = this.data.fromMapName;
+    var fromMapAddress = e.detail.value.fromMapAddress;
     var fromDes = e.detail.value.fromDes;
     var fromFloor = e.detail.value.fromFloor;
+    
+    var toMapName = this.data.toMapName;
+    var toMapAddress = e.detail.value.toMapAddress;
     var toDes = e.detail.value.toDes;
     var toFloor = e.detail.value.toFloor;
 
@@ -229,7 +240,8 @@ Page({
    
     var note = e.detail.value.note;
 
-    console.log(taocan + userName + telephone + date + time + fromDes + toDes + note);
+    console.log(taocan + ";" + appointTime + ";" + fromMapName + ";" + fromMapAddress +  ";"  + fromDes + ";" + fromFloor);
+    console.log(toMapName + ";" + toMapAddress + ";" + toDes + ";" + toFloor + ";" + userName + ";" + telephone + ";" + note);
 
     if (userName == "") {
       wx.showToast({
@@ -243,22 +255,6 @@ Page({
       wx.showToast({
         icon: 'loading',
         title: '联系方式未填写！',
-        duration: 1000
-      })
-      return;
-    }
-    if (date == "") {
-      wx.showToast({
-        icon: 'loading',
-        title: '日期未选择！',
-        duration: 1000
-      })
-      return;
-    }
-    if (time == "") {
-      wx.showToast({
-        icon: 'loading',
-        title: '时间未选择！',
         duration: 1000
       })
       return;
@@ -302,15 +298,21 @@ Page({
       url: config.host + 'wechat_ethan/appointment.do/addAppointment',
       data: {
         taocan:taocan,
-        username: userName,
-        telephone:telephone,
-        date: date,
-        time,time,
-        fromDes:fromDes,
-        toDes:toDes,
-        note:note,
+        appointTime: appointTime,
+
+        fromMapName: fromMapName,
+        fromMapAddress: fromMapAddress,
+        fromDes, fromDes,
         fromFloor: fromFloor,
-        toFloor: toFloor
+        
+        toMapName: toMapName,
+        toMapAddress: toMapAddress,
+        toDes, toDes,
+        toFloor: toFloor,
+
+        userName: userName,
+        telephone: telephone,
+        note: note
       },
       success: function (result) {
         wx.showToast({

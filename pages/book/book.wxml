@@ -6,7 +6,7 @@
 
       <view class="form-text">
         <label>所选套餐：</label>
-        <input type="text" name="taoca n" maxlength="32" placeholder-class="input-placeholder" class="from-input" value='{{taocan}}' />
+        <input type="text" name="taocan" maxlength="32" placeholder-class="input-placeholder" class="from-input" value='{{taocan}}' />
       </view>
 
       <!-- <view class="form-text">
@@ -29,7 +29,7 @@
 
       <view class="form-text">
         <label>搬家时间：</label>
-        <picker mode="multiSelector" value="{{dateTime}}" bindchange="changedateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}" class="from-input">
+        <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}" class="from-input">
           <view class="dateoption">
             {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
           </view>
@@ -43,7 +43,7 @@
 
       <view class="form-text">
         <label>详细地址：</label>
-        <input type="text" placeholder="区域,村委,栋数,楼层,房间号等" name="fromDes" maxlength="32" placeholder-class="input-placeholder" class="from-input" value="{{fromDes}}" />
+        <input type="text" placeholder="区域/村委/栋数/楼层/门牌号等" name="fromDes" maxlength="32" placeholder-class="input-placeholder" class="from-input" value="{{fromDes}}" />
       </view>
 
       <view class="form-text">
@@ -62,14 +62,14 @@
 
       <view class="form-text">
         <label>详细地址：</label>
-        <input type="text" placeholder="区域,村委,栋数,楼层,房间号等" name="toDes" maxlength="32" placeholder-class="input-placeholder" class="from-input" value="{{toDes}}" />
+        <input type="text" placeholder="区域/村委/栋数/楼层/门牌号等" name="toDes" maxlength="32" placeholder-class="input-placeholder" class="from-input" value="{{toDes}}" />
       </view>
 
       <view class="form-text">
         <label>搬入电梯：</label>
         <switch style='float:left;margin-top:15rpx;' checked="{{true}}" bindchange="toHasFloorSwitchChange" />
         <text style='float:left;margin-top:28rpx;'>{{toHasFloor}}</text>
-        <input type="text" hidden='{{toFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="fromFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+        <input type="text" hidden='{{toFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="toFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
         <text style='float:left;margin-left:12rpx;margin-top:30rpx;' hidden='{{toFloorHiddenFlag}}'>楼</text>
       </view>
 
