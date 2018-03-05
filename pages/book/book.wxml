@@ -1,92 +1,111 @@
 <!--online.wxml-->
 <view class="container">
-  <import src="/pages/public.wxml"/>
+  <import src="/pages/public.wxml" />
   <!-- <view class="online-head">
     <image src=""></image>
   </view> -->
   <form bindsubmit="book" report-submit="true">
-  <view class="Myfrom clear">
+    <view class="Myfrom clear">
 
-    <view class="form-text">
-      <label>所选套餐：</label>
-      <input type="text" name="taoca n" maxlength="32" placeholder-class="input-placeholder" class="from-input" value='{{taocan}}' />
-    </view>
+      <view class="form-text">
+        <label>所选套餐：</label>
+        <input type="text" name="taoca n" maxlength="32" placeholder-class="input-placeholder" class="from-input" value='{{taocan}}' />
+      </view>
 
-     <view class="form-text">
-      <label>搬家日期：</label>
-      <picker mode="date" value="{{date}}" start="{{date}}" name="date"  bindchange="bindDateChange" class="from-input">
-        <view class="dateoption">
-          {{date}}
-        </view>
-      </picker>
-    </view>
+      <!-- <view class="form-text">
+        <label>搬家日期：</label>
+        <picker mode="date" value="{{date}}" start="{{date}}" name="date" bindchange="bindDateChange" class="from-input">
+          <view class="dateoption">
+            {{date}}
+          </view>
+        </picker>
+      </view> -->
 
-    <view class="form-text">
+      <!-- <view class="form-text">
       <label>搬家时间：</label>
       <picker mode="time" value="{{time}}" tart="00:00" end="24:00" name="time" bindchange="bindTimeChange" class="from-input">
         <view class="dateoption">
           {{time}}
         </view>
       </picker>
-    </view>
+    </view> -->
 
-    <view class="form-text">
-      <label>从哪搬出：</label>
-      <input type="text" placeholder="区域,村委,栋数,楼层,房间号等" name="fromDes" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
-    </view>
+      <view class="form-text">
+        <label>搬家时间：</label>
+        <picker mode="multiSelector" value="{{dateTime}}" bindchange="changedateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}" class="from-input">
+          <view class="dateoption">
+            {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
+          </view>
+        </picker>
+      </view>
 
-    <view class="form-text">
-      <label>搬出电梯：</label>
-      <!-- <radio-group class="radio-group" bindchange="fromFloorRatioChange">
+      <view class="form-text">
+        <label>从哪搬出：</label>
+        <input type="text" placeholder="根据地图定位" name="fromMapName" maxlength="32" placeholder-class="input-placeholder" class="from-input" value="{{fromMapName}}" bindtap="chooseFromLocation" />
+      </view>
+
+      <view class="form-text">
+        <label>详细地址：</label>
+        <input type="text" placeholder="区域,村委,栋数,楼层,房间号等" name="fromDes" maxlength="32" placeholder-class="input-placeholder" class="from-input" value="{{fromDes}}" />
+      </view>
+
+      <view class="form-text">
+        <label>搬出电梯：</label>
+        <!-- <radio-group class="radio-group" bindchange="fromFloorRatioChange">
         <radio color="firebrick" value="0" checked="{{true}}" />有电梯
         <radio color="firebrick" value="1" checked="{{false}}" />无电梯
       </radio-group> -->
-      <switch style='float:left;margin-top:15rpx;' checked="{{true}}" bindchange="fromHasFloorSwitchChange"/>
-      <text style='float:left;margin-top:28rpx;'>{{fromHasFloor}}</text>
-      <input type="text" hidden='{{fromFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="fromFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />     
-      <text style='float:left;margin-left:12rpx;margin-top:30rpx;' hidden='{{fromFloorHiddenFlag}}'>楼</text>
-    </view>
+        <switch style='float:left;margin-top:15rpx;' checked="{{true}}" bindchange="fromHasFloorSwitchChange" />
+        <text style='float:left;margin-top:28rpx;'>{{fromHasFloor}}</text>
+        <input type="text" hidden='{{fromFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="fromFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+        <text style='float:left;margin-left:12rpx;margin-top:30rpx;' hidden='{{fromFloorHiddenFlag}}'>楼</text>
+      </view>
 
-    <!-- <view class="form-text">
+      <!-- <view class="form-text">
       <label>搬出楼层：</label>
        <input style="" type="text" placeholder="无电梯写具体楼层数" name="fromFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
     </view> -->
 
-    <view class="form-text">
-      <label>搬到哪儿：</label>
-      <input type="text" placeholder="区域,村委,栋数,楼层,房间号等" name="toDes" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
-    </view>
-  
-    <view class="form-text">
-      <label>搬入电梯：</label>
-      <!-- <radio-group class="radio-group" bindchange="fromFloorRatioChange">
+      <view class="form-text">
+        <label>搬到哪儿：</label>
+        <input type="text" placeholder="根据地图定位" name="toMapName" maxlength="32" placeholder-class="input-placeholder" class="from-input" value="{{toMapName}}" bindtap="chooseToLocation" />
+      </view>
+
+      <view class="form-text">
+        <label>详细地址：</label>
+        <input type="text" placeholder="区域,村委,栋数,楼层,房间号等" name="toDes" maxlength="32" placeholder-class="input-placeholder" class="from-input" value="{{toDes}}" />
+      </view>
+
+      <view class="form-text">
+        <label>搬入电梯：</label>
+        <!-- <radio-group class="radio-group" bindchange="fromFloorRatioChange">
         <radio color="firebrick" value="0" checked="{{true}}" />有电梯
         <radio color="firebrick" value="1" checked="{{false}}" />无电梯
       </radio-group> -->
-      <switch style='float:left;margin-top:15rpx;' checked="{{true}}" bindchange="toHasFloorSwitchChange"/>
-      <text style='float:left;margin-top:28rpx;'>{{toHasFloor}}</text>
-      <input type="text" hidden='{{toFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="fromFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
-      <text style='float:left;margin-left:12rpx;margin-top:30rpx;' hidden='{{toFloorHiddenFlag}}'>楼</text>
-    </view>
+        <switch style='float:left;margin-top:15rpx;' checked="{{true}}" bindchange="toHasFloorSwitchChange" />
+        <text style='float:left;margin-top:28rpx;'>{{toHasFloor}}</text>
+        <input type="text" hidden='{{toFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="fromFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+        <text style='float:left;margin-left:12rpx;margin-top:30rpx;' hidden='{{toFloorHiddenFlag}}'>楼</text>
+      </view>
 
-    <view class="form-text">
-      <label>您的姓名：</label>
-      <input type="text" placeholder="请输入姓名" name="userName" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
-    </view>
+      <view class="form-text">
+        <label>您的姓名：</label>
+        <input type="text" placeholder="请输入姓名" name="userName" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+      </view>
 
-    <view class="form-text">
-      <label>您的电话：</label>
-      <input type="text" placeholder="请输入联系方式" name="telephone" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
-    </view>
+      <view class="form-text">
+        <label>您的电话：</label>
+        <input type="text" placeholder="请输入联系方式" name="telephone" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+      </view>
 
-    <view class="form-textarea">
-      <label style="font-size: 32rpx;">特殊说明：</label>
-      <textarea maxlength="500" name="note" placeholder-class="input-placeholder" placeholder="若您还需要其它增值服务（如拆装服务、中途装卸等）请在此处填写" />     
+      <view class="form-textarea">
+        <label style="font-size: 32rpx;">特殊说明：</label>
+        <textarea maxlength="500" name="note" placeholder-class="input-placeholder" placeholder="若您还需要其它增值服务（如拆装服务、中途装卸等）请在此处填写" />
+      </view>
     </view>
-</view>
-  <view class="form-submit">
+    <view class="form-submit">
       <button size="default" loading="{{loading}}" class="online-submit" form-type="submit">预约搬家</button>
-  </view>
-</form>
+    </view>
+  </form>
   <template is="companyinfo" />
 </view>

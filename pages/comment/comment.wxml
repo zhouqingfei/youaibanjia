@@ -4,7 +4,6 @@
     <image class='swiperImg' bindtap='befPage' src="../../image/arrow.png" />
   </view>
 
-
   <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{current}}" bindchange='testDetails' indicator-active-color='#fff'>
 
     <block style="heisfssafd" wx:for="{{slider}}" wx:key="key">
@@ -12,17 +11,6 @@
         <image class='swiperImg' src="{{item}}" />
       </swiper-item>
     </block>
-    <!-- <block style="heisfssafd">
-      <swiper-item>
-        <image class='swiperImg' src="http://10.200.104.25:8080/wechat_ethan/img/youai1.jpg" />
-      </swiper-item>
-      <swiper-item>
-        <image class='swiperImg' src="http://10.200.104.25:8080/wechat_ethan/img/youai2.jpg" />
-      </swiper-item>
-      <swiper-item>
-        <image class='swiperImg' src="http://10.200.104.25:8080/wechat_ethan/img/youai3.jpg" />
-      </swiper-item>
-    </block> -->
   </swiper>
 
   <view class="wrap">
