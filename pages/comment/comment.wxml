@@ -4,6 +4,7 @@
     <image class='swiperImg' bindtap='befPage' src="../../image/arrow.png" />
   </view>
 
+
   <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{current}}" bindchange='testDetails' indicator-active-color='#fff'>
 
     <block style="heisfssafd" wx:for="{{slider}}" wx:key="key">

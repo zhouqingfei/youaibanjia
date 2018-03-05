@@ -1,9 +1,6 @@
 <!--online.wxml-->
 <view class="container">
   <import src="/pages/public.wxml" />
-  <!-- <view class="online-head">
-    <image src=""></image>
-  </view> -->
   <form bindsubmit="book" report-submit="true">
     <view class="Myfrom clear">
 
@@ -51,20 +48,12 @@
 
       <view class="form-text">
         <label>搬出电梯：</label>
-        <!-- <radio-group class="radio-group" bindchange="fromFloorRatioChange">
-        <radio color="firebrick" value="0" checked="{{true}}" />有电梯
-        <radio color="firebrick" value="1" checked="{{false}}" />无电梯
-      </radio-group> -->
         <switch style='float:left;margin-top:15rpx;' checked="{{true}}" bindchange="fromHasFloorSwitchChange" />
         <text style='float:left;margin-top:28rpx;'>{{fromHasFloor}}</text>
         <input type="text" hidden='{{fromFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="fromFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
         <text style='float:left;margin-left:12rpx;margin-top:30rpx;' hidden='{{fromFloorHiddenFlag}}'>楼</text>
       </view>
 
-      <!-- <view class="form-text">
-      <label>搬出楼层：</label>
-       <input style="" type="text" placeholder="无电梯写具体楼层数" name="fromFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
-    </view> -->
 
       <view class="form-text">
         <label>搬到哪儿：</label>
@@ -78,10 +67,6 @@
 
       <view class="form-text">
         <label>搬入电梯：</label>
-        <!-- <radio-group class="radio-group" bindchange="fromFloorRatioChange">
-        <radio color="firebrick" value="0" checked="{{true}}" />有电梯
-        <radio color="firebrick" value="1" checked="{{false}}" />无电梯
-      </radio-group> -->
         <switch style='float:left;margin-top:15rpx;' checked="{{true}}" bindchange="toHasFloorSwitchChange" />
         <text style='float:left;margin-top:28rpx;'>{{toHasFloor}}</text>
         <input type="text" hidden='{{toFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="fromFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />

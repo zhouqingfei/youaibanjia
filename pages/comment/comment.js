@@ -30,7 +30,6 @@ Page({
         }
         //this.data.slider = d.result;
         picList = d.result;
-<<<<<<< HEAD
         that.setData({
           slider: picList,
           picCount: d.result.length
@@ -42,6 +41,8 @@ Page({
   },
 
   testDetails(e) {
+    // console.log(e);
+    //console.info("current "+e.detail.current);
     this.data.current = e.detail.current;
     if (e.detail.source == 'autoplay') {
       this.setData({

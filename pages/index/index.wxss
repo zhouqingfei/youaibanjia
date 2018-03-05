@@ -60,16 +60,4 @@ page{
     width: 80%;
     color: white;
     border-radius: 0;
-}
-
-.logo-img{
-  display: block;
-  width: 200px;
-  height: 80px;
-  margin: 10px auto 0;
-}
-
-.in-img{
-  height: 80%;
-  width: 100%;
-}
+}  
