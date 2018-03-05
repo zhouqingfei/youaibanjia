@@ -30,6 +30,7 @@ Page({
         }
         //this.data.slider = d.result;
         picList = d.result;
+<<<<<<< HEAD
         that.setData({
           slider: picList,
           picCount: d.result.length

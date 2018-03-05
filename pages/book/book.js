@@ -216,7 +216,6 @@ Page({
   },
   book: function (e) {
     var taocan = e.detail.value.taocan;
-
     var date = e.detail.value.date;
     var time = e.detail.value.time;
     var fromDes = e.detail.value.fromDes;
