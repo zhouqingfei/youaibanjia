@@ -2,6 +2,12 @@ page{
   display: flex;  
   flex-direction: column;  
   height: 100%;  
+}
+swiper{
+  width: 100%;
+  height: 20%;
+  margin: 0 auto;
+  
 }  
 .navbar{  
   flex: none;  
@@ -41,7 +47,7 @@ page{
 }
 
 .login-btn{
-    margin-top: 60rpx;
+    margin-top: 10rpx;
     height:70rpx;
     width: 80%;
     color: white;
@@ -53,7 +59,7 @@ page{
 }
 
 .login-btn text {
-  line-height: 30px;
+  line-height: 10px;
 }
 
 .login-btn:hover{

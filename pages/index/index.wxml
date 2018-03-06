@@ -1,13 +1,22 @@
 <view >  
   <image style="width:70%;height:120rpx" src="../../image/logo.jpg"/>
 </view> 
+
 <!--导航条-->  
 <view class="navbar">  
   <view wx:for="{{navBarData}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
     <image data-idx="{{index}}" class="navBarImg {{currentTab==index ? 'active' : ''}}" style="width:70%;height:100%" src="{{item.imgSrc}}"/>
   </view>
 </view>  
-  
+
+<swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{current}}" bindchange='testDetails' indicator-active-color='#fff'>
+
+    <block style="heisfssafd" wx:for="{{slider}}" wx:key="key">
+      <swiper-item>
+        <image class='swiperImg' src="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper> 
 <view style="width:100%;height:18%;">  
   <image style="width:100%;height:100%;" src="../../image/title.gif"/>
 </view>  

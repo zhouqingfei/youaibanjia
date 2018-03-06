@@ -16,7 +16,7 @@ Page({
   onLoad: function () {
     var that = this;
     wx.request({
-      url: config.host + 'wechat_ethan/getPic.do/getReputation',
+      url: config.host + 'wechat_ethan/getpic.do/getreputation',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -25,7 +25,7 @@ Page({
         console.log(d)
         console.log(d.result[0].picUrl)
         for (var i = 0; i < d.result.length; ++i) {
-          d.result[i] = config.host + "wechat_ethan/img/" + d.result[i].picUrl;
+          d.result[i] =  d.result[i].picUrl;
           console.log(d.result[i]);
         }
         //this.data.slider = d.result;
