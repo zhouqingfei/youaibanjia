@@ -18,6 +18,7 @@ Page({
     fromMapName: "",
     fromMapAddress: "",
     fromDes: "",
+    fromFloor:"",
 
     fromHasFloor: '有',
     fromFloorHiddenFlag: true,
@@ -28,6 +29,7 @@ Page({
     toMapName: "",
     toMapAddress: "",
     toDes: "",
+    toFloor: "",
 
     toHasFloor: '有',
     toFloorHiddenFlag: true,
@@ -35,7 +37,7 @@ Page({
     dateTimeArray: null,
     
     startYear: 2018,
-    endYear: 2050
+    endYear: 2020
   },
   /**
    * 生命周期函数--监听页面加载
@@ -143,7 +145,8 @@ Page({
     if (e.detail.value){
       this.setData({
         fromHasFloor: "有",
-        fromFloorHiddenFlag:true
+        fromFloorHiddenFlag:true,
+        fromFloor:""
       })
     }else{
       this.setData({
@@ -158,7 +161,8 @@ Page({
     if (e.detail.value) {
       this.setData({
         toHasFloor: "有",
-        toFloorHiddenFlag: true
+        toFloorHiddenFlag: true,
+        toFloor:""
       })
     } else {
       this.setData({
@@ -226,12 +230,12 @@ Page({
     var appointTime = this.data.appointmentTime;
     
     var fromMapName = this.data.fromMapName;
-    var fromMapAddress = e.detail.value.fromMapAddress;
+    var fromMapAddress = this.data.fromMapAddress;
     var fromDes = e.detail.value.fromDes;
     var fromFloor = e.detail.value.fromFloor;
     
     var toMapName = this.data.toMapName;
-    var toMapAddress = e.detail.value.toMapAddress;
+    var toMapAddress = this.data.toMapAddress;
     var toDes = e.detail.value.toDes;
     var toFloor = e.detail.value.toFloor;
 
@@ -242,7 +246,87 @@ Page({
 
     console.log(taocan + ";" + appointTime + ";" + fromMapName + ";" + fromMapAddress +  ";"  + fromDes + ";" + fromFloor);
     console.log(toMapName + ";" + toMapAddress + ";" + toDes + ";" + toFloor + ";" + userName + ";" + telephone + ";" + note);
+    
+    if (taocan == "") {
+      // wx.showToast({
+      //   icon: 'loading',
+      //   title: '套餐未选择！',
+      //   duration: 1000
+      // })
+      // return;
+      wx.showModal({
+        title: '提示',
+        content: '套餐未选择！',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })  
 
+    }
+    if (appointTime == "") {
+      wx.showToast({
+        icon: 'loading',
+        title: '搬家日期未填写！',
+        duration: 1000
+      })
+      return;
+    }
+    if (fromMapName == "") {
+      wx.showToast({
+        icon: 'loading',
+        title: '请选择搬家起始点！',
+        duration: 1000
+      })
+      return;
+    }
+    if (fromDes == "") {
+      wx.showToast({
+        icon: 'loading',
+        title: '搬家详细地址未填写！',
+        duration: 1000
+      })
+      return;
+    }
+    if (!this.data.fromFloorHiddenFlag) {
+      if (fromFloor == ""){
+        wx.showToast({
+          icon: 'loading',
+          title: '起始点楼层未填写！',
+          duration: 1000
+        })
+        return;
+      }
+    }
+    if (toMapName == "") {
+      wx.showToast({
+        icon: 'loading',
+        title: '请选择搬家目的地！',
+        duration: 1000
+      })
+      return;
+    }
+    if (toDes == "") {
+      wx.showToast({
+        icon: 'loading',
+        title: '搬家目的地详细地址！',
+        duration: 1000
+      })
+      return;
+    }
+    if (!this.data.toFloorHiddenFlag) {
+      if(toFloor == ""){
+        wx.showToast({
+          icon: 'loading',
+          title: '目的地楼层未填写！',
+          duration: 1000
+        })
+        return;
+      }
+    }
     if (userName == "") {
       wx.showToast({
         icon: 'loading',
@@ -259,39 +343,6 @@ Page({
       })
       return;
     }
-    if (fromDes == "") {
-      wx.showToast({
-        icon: 'loading',
-        title: '起点未填写！',
-        duration: 1000
-      })
-      return;
-    }
-    if (toDes == "") {
-      wx.showToast({
-        icon: 'loading',
-        title: '终点未填写！',
-        duration: 1000
-      })
-      return;
-    }
-    if (fromFloor == "") {
-      wx.showToast({
-        icon: 'loading',
-        title: '搬出楼层未填写！',
-        duration: 1000
-      })
-      return;
-    }
-    if (toFloor == "") {
-      wx.showToast({
-        icon: 'loading',
-        title: '搬入楼层未填写！',
-        duration: 1000
-      })
-      return;
-    }
-
 
     wx.request({
       // url: requestUrl,
