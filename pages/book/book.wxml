@@ -50,7 +50,7 @@
         <label>搬出电梯：</label>
         <switch style='float:left;margin-top:15rpx;' checked="{{true}}" bindchange="fromHasFloorSwitchChange" />
         <text style='float:left;margin-top:28rpx;'>{{fromHasFloor}}</text>
-        <input type="text" hidden='{{fromFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="fromFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+        <input type="text" hidden='{{fromFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="fromFloor" value="{{fromFloor}}"  maxlength="32" placeholder-class="input-placeholder" class="from-input" />
         <text style='float:left;margin-left:12rpx;margin-top:30rpx;' hidden='{{fromFloorHiddenFlag}}'>楼</text>
       </view>
 
@@ -69,7 +69,7 @@
         <label>搬入电梯：</label>
         <switch style='float:left;margin-top:15rpx;' checked="{{true}}" bindchange="toHasFloorSwitchChange" />
         <text style='float:left;margin-top:28rpx;'>{{toHasFloor}}</text>
-        <input type="text" hidden='{{toFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="toFloor" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
+        <input type="text" hidden='{{toFloorHiddenFlag}}' style='text-align:right;margin-left:20rpx;float:left;width:200rpx' placeholder="请填写楼层" name="toFloor" value="{{toFloor}}" maxlength="32" placeholder-class="input-placeholder" class="from-input" />
         <text style='float:left;margin-left:12rpx;margin-top:30rpx;' hidden='{{toFloorHiddenFlag}}'>楼</text>
       </view>
 
