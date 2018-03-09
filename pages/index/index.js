@@ -47,6 +47,7 @@ Page({
         console.log(code);
         wx.request({
           url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + config.appId + '&secret=' + config.appSecret + '&js_code=' + code + '&grant_type=authorization_code',
+          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + config.appId +'&secret='+config.appSecret+'&js_code=' + code + '&grant_type=authorization_code',
           data: {},
           header: {
             'content-type': 'application/json'
