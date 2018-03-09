@@ -46,13 +46,13 @@ Page({
         code = res.code //返回code
         console.log(code);
         wx.request({
-          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + config.appId + '&secret=' + config.appSecret + '&js_code=' + code + '&grant_type=authorization_code',
           url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + config.appId +'&secret='+config.appSecret+'&js_code=' + code + '&grant_type=authorization_code',
           data: {},
           header: {
             'content-type': 'application/json'
           },
-          success: function (res) {
+
+          success: function (res) { 
             userId = res.data.openid; //返回openid
             wx.request({
               url: config.host + 'wechat_ethan/appointment.do/getUserOpenId' + '?openId=' + userId,
@@ -67,8 +67,6 @@ Page({
         })
       }
     })
-
-
 
     var that = this;
     wx.request({
