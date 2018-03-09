@@ -1,6 +1,8 @@
 var app = getApp();
 var picList;
+var code;
 var config = require('../../utils/config.js')
+var userId;
 Page({
   data: {
     navBarData: [{
@@ -36,10 +38,40 @@ Page({
       url: '../book/book?taocanId=' + this.data.currentTab,
     })
   },
+
   onLoad: function () {
+    wx.login({
+      //获取code
+      success: function (res) {
+        code = res.code //返回code
+        console.log(code);
+        wx.request({
+          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + config.appId + '&secret=' + config.appSecret + '&js_code=' + code + '&grant_type=authorization_code',
+          data: {},
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            userId = res.data.openid; //返回openid
+            wx.request({
+              url: config.host + 'wechat_ethan/appointment.do/getUserOpenId' + '?openId=' + userId,
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              success: function (res) {
+              }
+            })
+
+          }
+        })
+      }
+    })
+
+
+
     var that = this;
     wx.request({
-      url: config.host +'wechat_ethan/getpic.do/getmain',
+      url: config.host + 'wechat_ethan/getpic.do/getmain',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -58,9 +90,8 @@ Page({
           slider: picList
         })
       }
-
-
     })
   }
+
 
 })  
